@@ -1,3 +1,7 @@
+//This is the solution to the problem posted here:
+//https://leetcode.com/problemset/all/
+//Refer to the problem - Median of Two Assorted Arrays
+
 class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2)
