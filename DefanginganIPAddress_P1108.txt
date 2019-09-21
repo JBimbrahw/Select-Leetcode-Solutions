@@ -1,0 +1,23 @@
+//C++
+
+//J. Bimbrahw - 21/09/2019
+
+class Solution {
+public:
+    string defangIPaddr(string address) {
+        int found =address.find(".");
+        int next = found+2;
+        string defang = "[.]";
+        
+        while(found!=std::string::npos){
+            cout << "string 1: " << address << " - string2: ";
+            address.replace(found,1,defang);
+            cout << address << endl;
+            next = found+2;
+            found=address.find(".", next);
+        }
+        
+        return address;
+        
+    }
+};
