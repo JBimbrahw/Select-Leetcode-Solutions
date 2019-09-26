@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int repeatedNTimes(vector<int>& A) {
+        vector<int> histogram(10000, 0);
+        for (int i = 0; i < A.size(); i++){
+            histogram[A[i]]++;
+            if(histogram[A[i]]>1)
+            {
+                return A[i];
+            }
+        }
+        return 0;
+    }
+};
+
+//if we did not use a histogram, we would have needed a double for loop.  So we compromise memory for run-time speed.
