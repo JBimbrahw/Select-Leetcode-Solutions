@@ -1,40 +1,38 @@
 class Solution {
 public:
-    int retNextNonValIndex(vector<int>& nums, const int val, const int start, int& len) {
-    
-        int j = start;
-        //traverse the vector and get the first non-val index
-        for (; j < nums.size(); j++){
-            if(nums[j]!=val){
-                return j;
-            }
-            else
-                len--;
-        }
-        return j;
-    }
                  
     int removeElement(vector<int>& nums, int val) {
-
-        int start = 0;
+        //strategy is to replace all occurrences of val with the next non val number
+        int i = 0;
+        int j = i;
         int len = nums.size();
-        int len2 = nums.size();
-
-        //look at each element and see if it is val
-        for (int i = 0; i < nums.size(); i++){
-
-            int next = retNextNonValIndex(nums, val, start, len2);
-            start = next;
-
-            if ( next <= len){
-                cout << "next = " << next << endl;
-                nums[i] = nums[next];
-                start++;
-            }     
-            else
-                nums[i] = 0;
+        int lentoreturn=0;
+        for(; i<len; i++){
+            if(nums[i] != val){
+               //nothing to do here
+                lentoreturn++;
+                if (j==i)
+                    j++;
+            }
+            else{
+                //we need to get the next non val number
+                for(;j<len;j++){
+                    if(nums[j]!=val){
+                        break;
+                    }
+                }
+                //now j is either past the array, or it is pointing to the next value of interest
+                if(j < len){
+                    nums[i]=nums[j];
+                    nums[j] = val;
+                    j++;
+                    lentoreturn++;
+                }
+                else
+                    nums[i]=0;
+            }
         }
-
-        return len2;
+        return lentoreturn;
+        
     }
 };
