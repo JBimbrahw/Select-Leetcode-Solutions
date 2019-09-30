@@ -7,7 +7,6 @@ public:
         //return 0 if we go past the array
         for (; j < nums.size(); j++){
             if(nums[j]!=val){
-                cout << "j = " << j << endl;
                 return j;
             }
             else
@@ -27,12 +26,9 @@ public:
             int next = retNextNonValIndex(nums, val, start, len);
             start = next;
 
-            cout << "numssize = " << nums.size() << endl;
-
             if ( next <= len){
                 cout << "next = " << next << endl;
                 nums[i] = nums[next];
-                cout << "i = " << i << " , nums = " << nums[i] << " , len = " << len << endl;
                 start++;
             }     
             else
