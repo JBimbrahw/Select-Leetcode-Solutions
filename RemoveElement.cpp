@@ -18,11 +18,12 @@ public:
 
         int start = 0;
         int len = nums.size();
+        int len2 = nums.size();
 
         //look at each element and see if it is val
         for (int i = 0; i < nums.size(); i++){
 
-            int next = retNextNonValIndex(nums, val, start, len);
+            int next = retNextNonValIndex(nums, val, start, len2);
             start = next;
 
             if ( next <= len){
@@ -34,6 +35,6 @@ public:
                 nums[i] = 0;
         }
 
-        return len;
+        return len2;
     }
 };
