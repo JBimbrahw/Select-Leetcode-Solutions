@@ -4,7 +4,6 @@ public:
     
         int j = start;
         //traverse the vector and get the first non-val index
-        //return 0 if we go past the array
         for (; j < nums.size(); j++){
             if(nums[j]!=val){
                 return j;
